@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+/*
+  Crownmarks Law LLP — design system
+  Regal, legal, premium. Deep navy authority with a restrained gold accent.
+*/
+
+@theme {
+  /* ── Palette ───────────────────────────────────────────────── */
+  --color-canvas: #ffffff; /* crisp white */
+  --color-ivory: #f5f2ea; /* warm light section ground */
+  --color-ink: #0e1b30; /* deep-navy text on light */
+  --color-muted: #56617a; /* secondary text */
+  --color-faint: #8a93a6; /* tertiary / captions */
+  --color-line: #e5e2d8; /* hairline on light */
+
+  --color-navy: #0b2240; /* brand navy */
+  --color-navy-deep: #081a33; /* darker sections */
+  --color-navy-ink: #050f20; /* darkest — hero/footer base */
+
+  --color-gold: #c8a24a; /* regal gold accent */
+  --color-gold-soft: #e2c97e; /* gold on dark grounds */
+  --color-gold-bright: #d4af37; /* metallic highlight */
+
+  /* ── Type ──────────────────────────────────────────────────── */
+  --font-serif: var(--font-display), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+
+  /* ── Motion (Emil Kowalski curves) ─────────────────────────── */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* ── Layout ────────────────────────────────────────────────── */
+  --container-prose: 46rem;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  letter-spacing: -0.006em;
+}
+
+::selection {
+  background-color: var(--color-navy);
+  color: #fff;
+}
+
+/* Display serif (Playfair) reads best tight and short-leading at size */
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.06;
+}
+
+/* ── Focus visibility ────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Reveal-on-scroll (entrance; transform+opacity only) ─────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.6s var(--ease-out),
+    transform 0.6s var(--ease-out);
+  will-change: opacity, transform;
+}
+.reveal[data-shown="true"] {
+  opacity: 1;
+  transform: none;
+}
+/* Reduced motion: keep the fade, drop the movement (per Emil) */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transform: none;
+    transition: opacity 0.4s var(--ease-out);
+  }
+}
+
+/* Underline-on-hover for inline / nav links (gated to real hover) */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.4s var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+}
