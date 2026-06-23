@@ -5,9 +5,13 @@ import { PageHeader } from "@/components/PageHeader";
 import { ContactForm } from "@/components/ContactForm";
 import { firm } from "@/content/firm";
 
+const description = `Speak with Crownmarks Law LLP in ${firm.city}, ${firm.country}. Book a confidential consultation by phone, email or enquiry form.`;
+
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Speak with Crownmarks Law LLP in ${firm.city}, ${firm.country}. Book a confidential consultation by phone, email or enquiry form.`,
+  description,
+  alternates: { canonical: "/contact" },
+  openGraph: { title: "Contact · Crownmarks Law LLP", description, url: "/contact" },
 };
 
 export default function ContactPage() {

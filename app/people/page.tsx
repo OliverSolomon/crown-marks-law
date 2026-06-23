@@ -7,10 +7,14 @@ import { CTASection } from "@/components/CTASection";
 import { people, initials } from "@/content/people";
 import { practiceMap } from "@/content/practices";
 
+const description =
+  "Meet the partners and senior practitioners of Crownmarks Law LLP, advocates who are also Company Secretaries, Chartered Accountants, Actuaries, engineers and IAFL Fellows.";
+
 export const metadata: Metadata = {
   title: "People",
-  description:
-    "Meet the partners and senior practitioners of Crownmarks Law LLP - advocates who are also Company Secretaries, Chartered Accountants, Actuaries, engineers and IAFL Fellows.",
+  description,
+  alternates: { canonical: "/people" },
+  openGraph: { title: "Our People · Crownmarks Law LLP", description, url: "/people" },
 };
 
 export default function PeoplePage() {

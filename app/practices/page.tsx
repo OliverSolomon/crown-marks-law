@@ -4,10 +4,14 @@ import { PageHeader } from "@/components/PageHeader";
 import { PracticeList } from "@/components/PracticeList";
 import { CTASection } from "@/components/CTASection";
 
+const description =
+  "Eight core practice areas: corporate and commercial, dispute resolution, family law, foreign investment, Islamic law, energy and climate, construction, and intellectual property.";
+
 export const metadata: Metadata = {
   title: "Practices",
-  description:
-    "Eight core practice areas - corporate & commercial, dispute resolution, family law, foreign investment, Islamic law, energy & climate, construction, and intellectual property.",
+  description,
+  alternates: { canonical: "/practices" },
+  openGraph: { title: "Practice Areas · Crownmarks Law LLP", description, url: "/practices" },
 };
 
 export default function PracticesPage() {

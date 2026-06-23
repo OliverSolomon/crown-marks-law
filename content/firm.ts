@@ -1,6 +1,9 @@
 // Firm-wide facts, navigation and contact details for Crownmarks Law LLP.
 // Content sourced from the firm's draft profile.
 
+// Canonical production origin (placeholder; update to the live domain).
+export const siteUrl = "https://crownmarkslaw.co.ke";
+
 export const firm = {
   name: "Crownmarks Law LLP",
   shortName: "Crownmarks",
@@ -24,10 +27,30 @@ export const firm = {
 } as const;
 
 export const nav = [
-  { label: "About", href: "/about" },
-  { label: "Practices", href: "/practices" },
-  { label: "People", href: "/people" },
-  { label: "Contact", href: "/contact" },
+  {
+    label: "About",
+    href: "/about",
+    description:
+      "A leading Nairobi firm rooted in integrity, with depth across corporate, dispute and private-client work.",
+  },
+  {
+    label: "Practices",
+    href: "/practices",
+    description:
+      "Eight core practice areas, from corporate and commercial law to arbitration, family law and intellectual property.",
+  },
+  {
+    label: "People",
+    href: "/people",
+    description:
+      "Partners and senior practitioners, including advocates who are also accountants, engineers and IAFL Fellows.",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+    description:
+      "Book a confidential consultation with the right specialist for your matter in Nairobi.",
+  },
 ] as const;
 
 // Credentials strip - drawn strictly from the firm profile, no invented figures.

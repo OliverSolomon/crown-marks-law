@@ -6,10 +6,14 @@ import { PageHeader } from "@/components/PageHeader";
 import { CTASection } from "@/components/CTASection";
 import { firm, values, credentials } from "@/content/firm";
 
+const description =
+  "Crownmarks Law LLP is a Nairobi firm for commercial law, corporate advisory and dispute resolution, rooted in integrity and strengthened by an international outlook.";
+
 export const metadata: Metadata = {
   title: "About",
-  description:
-    "Crownmarks Law LLP is a Nairobi firm for commercial law, corporate advisory and dispute resolution - rooted in integrity, strengthened by an international outlook.",
+  description,
+  alternates: { canonical: "/about" },
+  openGraph: { title: "About · Crownmarks Law LLP", description, url: "/about" },
 };
 
 export default function AboutPage() {

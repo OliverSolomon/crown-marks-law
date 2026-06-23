@@ -5,8 +5,10 @@ import { Container } from "@/components/Container";
 import { Reveal } from "@/components/Reveal";
 import { PageHeader } from "@/components/PageHeader";
 import { CTASection } from "@/components/CTASection";
+import { JsonLd } from "@/components/JsonLd";
 import { practices, practiceMap } from "@/content/practices";
 import { peopleMap, initials } from "@/content/people";
+import { firm, siteUrl } from "@/content/firm";
 
 export function generateStaticParams() {
   return practices.map((p) => ({ slug: p.slug }));
@@ -20,9 +22,17 @@ export async function generateMetadata({
   const { slug } = await params;
   const practice = practiceMap[slug];
   if (!practice) return {};
+  const description = `${practice.tagline} ${practice.intro[0]}`.slice(0, 200);
+  const path = `/practices/${practice.slug}`;
   return {
     title: practice.title,
-    description: `${practice.tagline} ${practice.intro[0]}`.slice(0, 155),
+    description,
+    alternates: { canonical: path },
+    openGraph: {
+      title: `${practice.title} · Crownmarks Law LLP`,
+      description,
+      url: path,
+    },
   };
 }
 
@@ -42,8 +52,33 @@ export default async function PracticePage({
   const prev = practices[(idx - 1 + practices.length) % practices.length];
   const next = practices[(idx + 1) % practices.length];
 
+  const url = `${siteUrl}/practices/${practice.slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        name: practice.title,
+        serviceType: practice.title,
+        description: practice.tagline,
+        url,
+        provider: { "@type": "LegalService", name: firm.name, "@id": `${siteUrl}/#organization` },
+        areaServed: { "@type": "Country", name: "Kenya" },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+          { "@type": "ListItem", position: 2, name: "Practices", item: `${siteUrl}/practices` },
+          { "@type": "ListItem", position: 3, name: practice.title, item: url },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <JsonLd data={jsonLd} />
       <PageHeader
         eyebrow="Practice area"
         title={practice.title}
