@@ -144,7 +144,7 @@ export default async function PracticePage({
                   <span aria-hidden className="h-px w-8 bg-gold" />
                   {practice.whyHeading}
                 </h2>
-                <div className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2">
+                <div className="grid gap-px overflow-hidden rounded-sm border border-line bg-line sm:grid-cols-2">
                   {practice.why.map((w) => (
                     <div key={w.title} className="flex flex-col gap-2 bg-canvas p-7">
                       <h3 className="text-lg text-ink">{w.title}</h3>
@@ -157,7 +157,7 @@ export default async function PracticePage({
 
             {/* Sidebar */}
             <aside className="flex flex-col gap-8 lg:sticky lg:top-28 lg:self-start">
-              <div className="rounded-2xl border border-line bg-canvas p-7">
+              <div className="rounded-sm border border-line bg-canvas p-7">
                 <h3 className="font-serif text-lg text-ink">{practice.clientsHeading}</h3>
                 <ul className="mt-5 flex flex-col gap-3">
                   {practice.clients.map((c) => (
@@ -173,7 +173,7 @@ export default async function PracticePage({
               </div>
 
               {leads.length ? (
-                <div className="rounded-2xl border border-line bg-canvas p-7">
+                <div className="rounded-sm border border-line bg-canvas p-7">
                   <h3 className="font-serif text-lg text-ink">Practice contacts</h3>
                   <ul className="mt-5 flex flex-col gap-5">
                     {leads.map((p) => (
@@ -191,10 +191,10 @@ export default async function PracticePage({
                 </div>
               ) : null}
 
-              <div className="rounded-2xl bg-navy-ink p-7 text-white">
+              <div className="rounded-sm bg-navy-ink p-7 text-white">
                 <p className="font-serif text-xl leading-snug">Have a matter in this area?</p>
                 <p className="mt-2 text-[0.9rem] leading-relaxed text-white/65">
-                  Tell us what you&rsquo;re facing - your enquiry is confidential.
+                  Tell us what you&rsquo;re facing. Your enquiry is confidential.
                 </p>
                 <Link
                   href="/contact"

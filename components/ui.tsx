@@ -2,8 +2,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 /* ── Eyebrow ──────────────────────────────────────────────────
-   Editorial label: italic display serif followed by a hairline rule
-   (after TEMPLARS). Not uppercase-tracked. */
+   Corporate section label: short gold rule + small uppercase tracked
+   caption, in the Clifford Chance register. */
 export function Eyebrow({
   children,
   tone = "dark",
@@ -15,9 +15,11 @@ export function Eyebrow({
 }) {
   const text = tone === "light" ? "text-white/85" : "text-navy";
   return (
-    <span className={`inline-flex items-center gap-4 ${className}`}>
-      <span className={`font-serif text-lg italic ${text}`}>{children}</span>
-      <span aria-hidden className="h-px w-12 bg-gold" />
+    <span className={`inline-flex items-center gap-3 ${className}`}>
+      <span aria-hidden className="h-px w-8 bg-gold-bright" />
+      <span className={`text-[0.72rem] font-semibold uppercase tracking-[0.18em] ${text}`}>
+        {children}
+      </span>
     </span>
   );
 }
@@ -61,13 +63,13 @@ export function SectionHeading({
 type ButtonVariant = "primary" | "gold" | "outline" | "outline-light" | "ghost";
 
 const buttonBase =
-  "group inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-medium tracking-tight transition-[background-color,color,border-color,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-[0.97]";
+  "group inline-flex items-center justify-center gap-2.5 rounded-sm px-6 py-3.5 text-sm font-medium tracking-tight transition-[background-color,color,border-color,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-[0.97]";
 
 const buttonVariants: Record<ButtonVariant, string> = {
   primary: "bg-navy text-white shadow-sm hover:bg-navy-deep",
-  gold: "bg-gold text-navy-ink shadow-sm hover:bg-gold-soft",
+  gold: "bg-gold-bright text-navy-ink shadow-sm hover:bg-gold-soft",
   outline: "border border-ink/15 text-ink hover:border-navy hover:bg-navy hover:text-white",
-  "outline-light": "border border-white/30 text-white hover:bg-white hover:text-navy",
+  "outline-light": "border border-white/40 text-white hover:bg-white hover:text-navy",
   ghost: "text-ink hover:text-navy",
 };
 

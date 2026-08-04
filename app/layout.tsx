@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Hanken_Grotesk } from "next/font/google";
+import { Libre_Franklin, Hanken_Grotesk } from "next/font/google";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 import { Header } from "@/components/Header";
@@ -8,12 +8,12 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { SiteJsonLd } from "@/components/SiteJsonLd";
 import { firm } from "@/content/firm";
 
-// High-contrast display serif — regal, editorial, with an expressive italic.
-const playfair = Playfair_Display({
+// Corporate grotesk display — clean, authoritative, in the Clifford Chance register.
+const libreFranklin = Libre_Franklin({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
-  style: ["normal", "italic"],
+  weight: ["400", "500", "600", "700"],
 });
 
 // Clean, professional grotesk for body and UI.
@@ -93,12 +93,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${hanken.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col bg-ivory">
+    <html lang="en" className={`${libreFranklin.variable} ${hanken.variable} h-full antialiased`}>
+      <body className="flex min-h-full flex-col bg-canvas">
         <SiteJsonLd />
         <SmoothScroll>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 pt-[4.75rem] md:pt-[7rem]">{children}</main>
           <Footer />
         </SmoothScroll>
       </body>

@@ -3,56 +3,68 @@ import Image from "next/image";
 import { Container } from "@/components/Container";
 import { Reveal } from "@/components/Reveal";
 import { Button, Eyebrow, SectionHeading } from "@/components/ui";
-import { PracticeList } from "@/components/PracticeList";
 import { CTASection } from "@/components/CTASection";
-import { GeometricPattern } from "@/components/GeometricPattern";
-import { values } from "@/content/firm";
+import { firm, values } from "@/content/firm";
+import { practices } from "@/content/practices";
 import { people, initials } from "@/content/people";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <About />
-      <Capabilities />
+      <SubNav />
+      <Intro />
+      <HotTopics />
       <Approach />
+      <LegalDNA />
+      <Experience />
       <Recognition />
       <PeoplePreview />
+      <Insights />
       <CTASection />
     </>
   );
 }
 
-/* ── Hero ─────────────────────────────────────────────────────── */
+/* ── Hero banner (photographic, title + tagline over teal wash) ─── */
 function Hero() {
   return (
-    <section className="relative flex min-h-[94vh] items-center overflow-hidden bg-navy-ink text-white">
+    <section className="relative overflow-hidden bg-navy-ink text-white">
+      <Image
+        src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2400&q=75"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/4 h-[44rem] w-[44rem] -translate-x-1/2 rounded-full opacity-[0.1] blur-3xl"
-        style={{ background: "radial-gradient(circle, var(--color-gold) 0%, transparent 60%)" }}
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(104deg, rgba(6,47,46,0.92) 0%, rgba(9,79,77,0.82) 48%, rgba(12,107,104,0.55) 100%)",
+        }}
       />
-      {/* Brand line-motif anchored to the lower edge */}
-      <GeometricPattern
-        rows={4}
-        cols={18}
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[42%] w-full opacity-60 [mask-image:linear-gradient(to_top,black,transparent)]"
-      />
-      <Container className="relative pt-28 pb-24">
-        <div className="mx-auto flex max-w-4xl flex-col items-center gap-7 text-center">
+      <Container className="relative">
+        <div className="flex min-h-[62vh] max-w-3xl flex-col justify-center gap-6 py-20 lg:py-28">
           <Reveal>
-            <h1 className="text-balance font-serif text-[2.9rem] leading-[1.02] tracking-[-0.01em] sm:text-6xl lg:text-[5rem]">
-              Counsel of <span className="italic text-gold-soft">consequence.</span>
+            <Eyebrow tone="light">{firm.city} · {firm.country}</Eyebrow>
+          </Reveal>
+          <Reveal delay={80}>
+            <h1 className="text-balance text-4xl leading-[1.05] sm:text-5xl lg:text-[3.9rem]">
+              Commercial, corporate and dispute resolution counsel.
             </h1>
           </Reveal>
-          <Reveal delay={90}>
-            <p className="max-w-xl text-lg leading-relaxed text-white/70 sm:text-xl">
-              A Nairobi law firm for commercial, corporate and dispute resolution work, trusted by
-              clients across Kenya and beyond.
+          <Reveal delay={150}>
+            <p className="max-w-xl text-lg leading-relaxed text-white/80">
+              Integrated. Multidisciplinary. Trusted across borders. One team of advocates,
+              company secretaries, accountants and engineers, working on the matters that decide
+              how businesses and families move forward.
             </p>
           </Reveal>
-          <Reveal delay={180}>
-            <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <Reveal delay={220}>
+            <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-center">
               <Button href="/contact" variant="gold" withArrow>
                 Book a consultation
               </Button>
@@ -67,52 +79,60 @@ function Hero() {
   );
 }
 
-/* ── About (text + photograph) ────────────────────────────────── */
-function About() {
+/* ── Sub-navigation tabs (CC hub-style) ─────────────────────────── */
+function SubNav() {
+  const tabs = [
+    { label: "Overview", href: "/", active: true },
+    { label: "Practices", href: "/practices" },
+    { label: "Our people", href: "/people" },
+    { label: "About the firm", href: "/about" },
+    { label: "Contact", href: "/contact" },
+  ];
   return (
-    <section className="bg-ivory py-24 lg:py-32">
+    <div className="sticky top-[4.75rem] z-30 border-b border-line bg-canvas/95 backdrop-blur md:top-[7rem]">
+      <Container className="flex gap-1 overflow-x-auto">
+        {tabs.map((t) => (
+          <Link
+            key={t.label}
+            href={t.href}
+            className={`relative whitespace-nowrap px-4 py-4 text-[0.9rem] font-medium transition-colors ${
+              t.active ? "text-navy" : "text-ink/65 hover:text-navy"
+            }`}
+          >
+            {t.label}
+            {t.active ? (
+              <span aria-hidden className="absolute inset-x-4 bottom-0 h-0.5 bg-gold-bright" />
+            ) : null}
+          </Link>
+        ))}
+      </Container>
+    </div>
+  );
+}
+
+/* ── Intro (CC "the world is being disrupted" block) ────────────── */
+function Intro() {
+  return (
+    <section className="bg-canvas py-20 lg:py-28">
       <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          <Reveal className="flex flex-col gap-7">
-            <Eyebrow>The firm</Eyebrow>
-            <h2 className="text-balance font-serif text-[2rem] leading-[1.06] text-ink sm:text-4xl lg:text-[2.9rem]">
-              At the forefront of law in Nairobi.
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+          <Reveal>
+            <h2 className="text-balance text-[2rem] leading-[1.1] text-ink sm:text-4xl lg:text-[2.7rem]">
+              A single firm for complex, cross-border matters.
             </h2>
-            <p className="max-w-xl text-lg leading-relaxed text-muted">
-              Crownmarks is a leading Kenyan firm, advising clients across sectors and borders.
-              Recognised for integrity, efficiency and expertise, we serve a diverse clientele,
-              individual and corporate, local and international.
+          </Reveal>
+          <Reveal delay={120} className="flex flex-col gap-5 text-lg leading-relaxed text-muted">
+            <p>
+              Crownmarks is a Nairobi firm for commercial law, corporate advisory and dispute
+              resolution. We act for a broad clientele, local and international, from individuals
+              and families to financial institutions, government bodies and start-ups.
             </p>
-            <div className="mt-2 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <Button href="/about" variant="outline" withArrow>
-                Who we are
-              </Button>
-              <Button href="/people" variant="ghost" withArrow>
-                Our people
-              </Button>
-            </div>
-          </Reveal>
-          <Reveal delay={120}>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-navy-deep">
-              <Image
-                src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=1200&q=75"
-                alt="Modern architecture in the city"
-                fill
-                sizes="(min-width: 1024px) 40vw, 90vw"
-                className="object-cover"
-              />
-              <div
-                aria-hidden
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(180deg, transparent 55%, rgba(5,15,32,0.55) 100%)",
-                }}
-              />
-              {/* gold corner accent */}
-              <span aria-hidden className="absolute left-5 top-5 h-10 w-10 border-l border-t border-gold-soft/70" />
-              <span aria-hidden className="absolute bottom-5 right-5 h-10 w-10 border-b border-r border-gold-soft/70" />
-            </div>
+            <p>
+              Our partner count places us among Kenya&rsquo;s tier-one firms, with the depth and
+              specialisation that complex work demands. From contract structuring and risk
+              management to high-stakes litigation and cross-border arbitration, we bring clarity
+              and confidence to every matter in Kenya and beyond.
+            </p>
           </Reveal>
         </div>
       </Container>
@@ -120,55 +140,29 @@ function About() {
   );
 }
 
-/* ── Capabilities (signature navy + faded photo + list) ───────── */
-function Capabilities() {
+/* ── Hot topics (pill links to practice areas) ──────────────────── */
+function HotTopics() {
   return (
-    <section className="relative overflow-hidden bg-navy text-white">
-      <Image
-        src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=70"
-        alt=""
-        fill
-        sizes="100vw"
-        className="object-cover opacity-[0.14]"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, var(--color-navy) 0%, rgba(11,34,64,0.92) 100%)",
-        }}
-      />
-      <Container className="relative py-24 lg:py-32">
-        <Reveal>
-          <SectionHeading
-            tone="light"
-            eyebrow="Capabilities"
-            title="Solutions across the spectrum of legal services."
-          />
-        </Reveal>
-        <div className="mt-14">
-          <PracticeList tone="dark" />
-        </div>
-      </Container>
-    </section>
-  );
-}
-
-/* ── Approach / values (4-up principles) ──────────────────────── */
-function Approach() {
-  return (
-    <section className="bg-ivory py-24 lg:py-32">
+    <section className="border-y border-line bg-ivory py-16 lg:py-20">
       <Container>
         <Reveal>
-          <SectionHeading eyebrow="Our approach" title="How we work alongside you." className="mb-16" />
+          <Eyebrow>Hot topics</Eyebrow>
         </Reveal>
-        <div className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-          {values.map((v, i) => (
-            <Reveal key={v.title} delay={i * 70} className="flex flex-col gap-4">
-              <span className="font-serif text-3xl text-gold">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="font-serif text-xl text-ink">{v.title}</h3>
-              <p className="text-[0.95rem] leading-relaxed text-muted">{v.body}</p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          {practices.map((p, i) => (
+            <Reveal key={p.slug} delay={(i % 6) * 40}>
+              <Link
+                href={`/practices/${p.slug}`}
+                className="group inline-flex items-center gap-2 rounded-sm border border-line bg-canvas px-4 py-2.5 text-[0.9rem] font-medium text-ink transition-colors hover:border-navy hover:text-navy"
+              >
+                {p.title}
+                <span
+                  aria-hidden
+                  className="text-gold-bright transition-transform duration-300 group-hover:translate-x-0.5"
+                >
+                  →
+                </span>
+              </Link>
             </Reveal>
           ))}
         </div>
@@ -177,7 +171,161 @@ function Approach() {
   );
 }
 
-/* ── Recognition (navy stat band) ─────────────────────────────── */
+/* ── Approach (CC "a new approach to solving challenges") ────────── */
+function Approach() {
+  return (
+    <section className="bg-canvas py-20 lg:py-28">
+      <Container>
+        <div className="grid gap-14 lg:grid-cols-2 lg:gap-24">
+          <Reveal className="flex flex-col gap-6">
+            <Eyebrow>Our approach</Eyebrow>
+            <h2 className="text-balance text-[1.9rem] leading-[1.12] text-ink sm:text-3xl lg:text-[2.4rem]">
+              We break down the boundaries between practice areas.
+            </h2>
+            <p className="text-lg leading-relaxed text-muted">
+              Crownmarks brings advocates who are also Company Secretaries, Chartered Accountants,
+              Actuaries, engineers and MBAs into one integrated team. That gives clients a 360°
+              view of every matter, with legal, financial and technical judgement under one roof.
+            </p>
+            <Button href="/about" variant="outline" withArrow>
+              Who we are
+            </Button>
+          </Reveal>
+          <div className="grid gap-px overflow-hidden rounded-sm border border-line bg-line sm:grid-cols-2">
+            {values.map((v, i) => (
+              <Reveal key={v.title} delay={i * 70} className="flex flex-col gap-3 bg-canvas p-7">
+                <span className="text-sm font-semibold tabular-nums text-gold-bright">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="text-lg text-ink">{v.title}</h3>
+                <p className="text-[0.95rem] leading-relaxed text-muted">{v.body}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* ── Legal DNA (CC accordion of capability themes) ──────────────── */
+const dnaItems = [
+  {
+    title: "Corporate deals and market entry",
+    body: "The success of most businesses now runs on getting the structure right. We advise on company formation, governance, M&A and capital raising, and we help foreign investors enter the Kenyan market, from KenInvest registration to cross-border transactions and joint ventures.",
+    href: "/practices/corporate-commercial",
+  },
+  {
+    title: "Disputes, arbitration and investigations",
+    body: "Our litigators have national standing, including a former ICJ Kenya Jurist of the Year. We handle domestic and international arbitration under ICC, LCIA and SIAC rules, commercial litigation, and the enforcement of awards under the New York Convention.",
+    href: "/practices/dispute-resolution",
+  },
+  {
+    title: "Family and private client",
+    body: "As Fellows of the International Academy of Family Lawyers, we act on divorce, custody, matrimonial property and cross-border disputes, including child relocation, abduction and Hague Convention matters, with discretion and care.",
+    href: "/practices/family-law",
+  },
+  {
+    title: "Advisory, compliance and regulation",
+    body: "We advise on the full range of regulatory and compliance work: data protection, financial services licensing, IP monetisation, ESG frameworks and sector-specific approvals across finance, telecoms, energy and trade.",
+    href: "/practices/intellectual-property",
+  },
+];
+
+function LegalDNA() {
+  return (
+    <section className="bg-ivory py-20 lg:py-28">
+      <Container>
+        <Reveal>
+          <SectionHeading
+            eyebrow="In our legal DNA"
+            title="How we help your business survive and thrive."
+            className="mb-12"
+          />
+        </Reveal>
+        <div className="border-b border-line">
+          {dnaItems.map((item) => (
+            <details key={item.title} className="cc-acc group">
+              <summary>
+                <h3 className="text-xl text-ink transition-colors group-hover:text-navy sm:text-2xl">
+                  {item.title}
+                </h3>
+                <span aria-hidden className="cc-acc-sign" />
+              </summary>
+              <div className="cc-acc-body max-w-3xl">
+                <p className="text-lg leading-relaxed text-muted">{item.body}</p>
+                <Link
+                  href={item.href}
+                  className="mt-5 inline-flex items-center gap-2 text-[0.92rem] font-medium text-navy link-underline"
+                >
+                  Read more
+                  <span aria-hidden>→</span>
+                </Link>
+              </div>
+            </details>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* ── Representative work (CC "client highlights") ───────────────── */
+const experience = [
+  {
+    tag: "Arbitration",
+    body: "Representing corporates and financial institutions in domestic and international arbitration before ICC, LCIA and SIAC tribunals, and enforcing awards across jurisdictions.",
+  },
+  {
+    tag: "Foreign investment",
+    body: "Guiding multinational investors into the Kenyan market, coordinating with KenInvest and immigration authorities on incorporation, licensing and cross-border structuring.",
+  },
+  {
+    tag: "Family law",
+    body: "Acting in complex cross-border family disputes, including international divorce, child relocation and Hague Convention matters, for high-net-worth and expatriate families.",
+  },
+  {
+    tag: "Energy and infrastructure",
+    body: "Advising renewable-energy developers and sponsors on Power Purchase Agreements, project structuring and community engagement under the Energy Act.",
+  },
+  {
+    tag: "Corporate and M&A",
+    body: "Leading multi-jurisdictional M&A, joint ventures and capital raising for growth-stage businesses, corporates and development finance institutions.",
+  },
+  {
+    tag: "Intellectual property",
+    body: "Building and defending patent and trademark portfolios, including FRAND and standard-essential patent strategy for technology and life-sciences clients.",
+  },
+];
+
+function Experience() {
+  return (
+    <section className="bg-canvas py-20 lg:py-28">
+      <Container>
+        <Reveal>
+          <SectionHeading
+            eyebrow="Representative work"
+            title="Where we make it happen."
+            lede="A snapshot of the matters our teams handle across sectors and jurisdictions."
+            className="mb-14"
+          />
+        </Reveal>
+        <div className="grid gap-px overflow-hidden rounded-sm border border-line bg-line md:grid-cols-2 lg:grid-cols-3">
+          {experience.map((e, i) => (
+            <Reveal key={e.tag} delay={(i % 3) * 60} className="flex flex-col gap-4 bg-canvas p-8">
+              <span className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-gold-bright">
+                {e.tag}
+              </span>
+              <p className="leading-relaxed text-muted">{e.body}</p>
+            </Reveal>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* ── Recognition (teal stat band) ───────────────────────────────── */
 function Recognition() {
   const awards = [
     { value: "2025", label: "Litigation Practitioner of the Year" },
@@ -186,17 +334,13 @@ function Recognition() {
     { value: "Tier 1", label: "Standing among Kenya's leading firms" },
   ];
   return (
-    <section className="relative overflow-hidden bg-navy-deep text-white">
-      <Container className="py-20 lg:py-28">
+    <section className="bg-navy-deep text-white">
+      <Container className="py-20 lg:py-24">
         <Reveal>
           <Eyebrow tone="light">Recognition</Eyebrow>
-          <h2 className="mt-6 max-w-2xl text-balance font-serif text-[2rem] leading-[1.06] sm:text-4xl lg:text-[2.9rem]">
+          <h2 className="mt-6 max-w-2xl text-balance text-[1.9rem] leading-[1.1] sm:text-3xl lg:text-[2.5rem]">
             Award-winning advocacy, recognised nationally.
           </h2>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/65">
-            Home to litigators of national standing, including a former ICJ Kenya Jurist of the
-            Year, the country&rsquo;s highest individual honour for legal excellence.
-          </p>
         </Reveal>
         <div className="mt-14 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
           {awards.map((a, i) => (
@@ -205,7 +349,7 @@ function Recognition() {
               delay={i * 70}
               className="flex flex-col gap-2 border-t border-white/15 pt-5"
             >
-              <span className="font-serif text-3xl text-gold-soft lg:text-4xl">{a.value}</span>
+              <span className="text-3xl font-semibold text-gold-soft lg:text-4xl">{a.value}</span>
               <span className="text-sm leading-snug text-white/60">{a.label}</span>
             </Reveal>
           ))}
@@ -215,11 +359,11 @@ function Recognition() {
   );
 }
 
-/* ── People preview (portrait monograms) ──────────────────────── */
+/* ── People preview ─────────────────────────────────────────────── */
 function PeoplePreview() {
   const featured = people.slice(0, 4);
   return (
-    <section className="bg-ivory py-24 lg:py-32">
+    <section className="bg-canvas py-20 lg:py-28">
       <Container>
         <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
           <Reveal>
@@ -234,14 +378,72 @@ function PeoplePreview() {
         <div className="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
           {featured.map((p, i) => (
             <Reveal key={p.slug} delay={i * 70} className="flex flex-col gap-4">
-              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-navy/10 font-serif text-2xl text-navy">
+              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-navy/10 text-2xl font-semibold text-navy">
                 {initials(p.name)}
               </span>
               <div className="flex flex-col gap-1">
-                <h3 className="font-serif text-lg text-ink">{p.name}</h3>
+                <h3 className="text-lg text-ink">{p.name}</h3>
                 <p className="text-sm text-muted">{p.role}</p>
-                {p.credentials ? <p className="text-[0.8rem] text-gold">{p.credentials}</p> : null}
+                {p.credentials ? (
+                  <p className="text-[0.8rem] font-medium text-gold">{p.credentials}</p>
+                ) : null}
               </div>
+            </Reveal>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* ── Insights (CC news/insights row) ────────────────────────────── */
+const insights = [
+  {
+    topic: "Foreign investment",
+    title: "Setting up in Kenya: a practical route for foreign investors",
+    href: "/practices/foreign-investment",
+  },
+  {
+    topic: "Dispute resolution",
+    title: "Choosing arbitration over litigation for cross-border commercial disputes",
+    href: "/practices/dispute-resolution",
+  },
+  {
+    topic: "Family law",
+    title: "When a family dispute crosses borders: what the Hague Convention means for you",
+    href: "/practices/family-law",
+  },
+];
+
+function Insights() {
+  return (
+    <section className="border-t border-line bg-ivory py-20 lg:py-28">
+      <Container>
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+          <Reveal>
+            <SectionHeading eyebrow="Insights" title="Reading room." />
+          </Reveal>
+        </div>
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {insights.map((n, i) => (
+            <Reveal key={n.title} delay={i * 70}>
+              <Link
+                href={n.href}
+                className="group flex h-full flex-col gap-4 rounded-sm border border-line bg-canvas p-7 transition-colors hover:border-navy"
+              >
+                <span className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-gold-bright">
+                  {n.topic}
+                </span>
+                <h3 className="text-lg leading-snug text-ink transition-colors group-hover:text-navy">
+                  {n.title}
+                </h3>
+                <span
+                  aria-hidden
+                  className="mt-auto text-navy transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  →
+                </span>
+              </Link>
             </Reveal>
           ))}
         </div>

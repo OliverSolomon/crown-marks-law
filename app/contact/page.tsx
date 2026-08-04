@@ -55,7 +55,7 @@ export default function ContactPage() {
                 </address>
               </ContactBlock>
 
-              <div className="rounded-2xl border border-line bg-canvas p-6">
+              <div className="rounded-sm border border-line bg-canvas p-6">
                 <p className="text-[0.92rem] leading-relaxed text-muted">
                   All enquiries are treated in the strictest confidence and protected by legal
                   professional privilege.

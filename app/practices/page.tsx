@@ -20,7 +20,7 @@ export default function PracticesPage() {
       <PageHeader
         eyebrow="What we do"
         title="Practice areas."
-        lede="Deep specialisation across the matters that move businesses, families and institutions - coordinated under one integrated, multidisciplinary team."
+        lede="Deep specialisation across the matters that move businesses, families and institutions, coordinated under one integrated, multidisciplinary team."
         crumbs={[{ label: "Home", href: "/" }, { label: "Practices" }]}
       />
 

@@ -23,13 +23,13 @@ export default function PeoplePage() {
       <PageHeader
         eyebrow="Our people"
         title="The team behind the work."
-        lede="A multidisciplinary bench of advocates, arbitrators, engineers, accountants and company secretaries - bringing a 360° view to every matter."
+        lede="A multidisciplinary bench of advocates, arbitrators, engineers, accountants and company secretaries, bringing a 360° view to every matter."
         crumbs={[{ label: "Home", href: "/" }, { label: "People" }]}
       />
 
       <section className="bg-ivory py-20 lg:py-28">
         <Container>
-          <div className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-2">
+          <div className="grid gap-px overflow-hidden rounded-sm border border-line bg-line md:grid-cols-2">
             {people.map((p, i) => (
               <Reveal key={p.slug} delay={(i % 2) * 80} className="flex flex-col gap-5 bg-canvas p-8 lg:p-10">
                 <div className="flex items-center gap-5">

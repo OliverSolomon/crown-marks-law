@@ -29,7 +29,7 @@ export const practices: Practice[] = [
     title: "Corporate & Commercial Law",
     tagline: "Structuring success from the inside out.",
     intro: [
-      "We deliver top-of-the-market corporate and commercial counsel. Our multidisciplinary team - advocates who are dual-qualified as Company Secretaries, Chartered Accountants, Actuaries, MBAs and an LLM in Financial Services Law - offers seamless, strategic advice across legal, financial and regulatory domains.",
+      "We deliver top-of-the-market corporate and commercial counsel. Our multidisciplinary team, advocates who are dual-qualified as Company Secretaries, Chartered Accountants, Actuaries, MBAs and an LLM in Financial Services Law, offers seamless, strategic advice across legal, financial and regulatory domains.",
       "We don't just advise; we partner with you to build resilient, compliant and growth-ready businesses, bringing commercial acumen and a genuine business sense to every negotiation.",
     ],
     servicesHeading: "How we help",
@@ -68,7 +68,7 @@ export const practices: Practice[] = [
     why: [
       {
         title: "One integrated team",
-        body: "Legal, financial and actuarial insight under one roof - no hand-offs, no gaps.",
+        body: "Legal, financial and actuarial insight under one roof, no hand-offs, no gaps.",
       },
       {
         title: "Commercially attuned",
@@ -83,8 +83,8 @@ export const practices: Practice[] = [
     title: "Arbitration & Dispute Resolution",
     tagline: "Resolving conflict with precision, privacy and professionalism.",
     intro: [
-      "Disputes - whether commercial, contractual or regulatory - disrupt business and erode value. Our Arbitration & Dispute Resolution practice offers strategic, efficient and confidential alternatives to litigation, helping clients resolve conflict while preserving relationships and reputations.",
-      "We are proud to be home to award-winning litigators, including a former ICJ Kenya Jurist of the Year - the country's highest individual honour for legal excellence and human-rights advocacy. Our partners are regularly shortlisted at the Nairobi Legal Awards and won 2025 Litigation Practitioner of the Year.",
+      "Disputes, whether commercial, contractual or regulatory, disrupt business and erode value. Our Arbitration & Dispute Resolution practice offers strategic, efficient and confidential alternatives to litigation, helping clients resolve conflict while preserving relationships and reputations.",
+      "We are proud to be home to award-winning litigators, including a former ICJ Kenya Jurist of the Year, the country's highest individual honour for legal excellence and human-rights advocacy. Our partners are regularly shortlisted at the Nairobi Legal Awards and won 2025 Litigation Practitioner of the Year.",
     ],
     servicesHeading: "Arbitration services",
     services: [
@@ -118,7 +118,7 @@ export const practices: Practice[] = [
     why: [
       {
         title: "Multidisciplinary strength",
-        body: "Lawyers who are also qualified arbitrators, tax specialists, engineers, accountants and certified mediators - a 360° view of every dispute.",
+        body: "Lawyers who are also qualified arbitrators, tax specialists, engineers, accountants and certified mediators, a 360° view of every dispute.",
       },
       {
         title: "Global perspective",
@@ -135,23 +135,23 @@ export const practices: Practice[] = [
     slug: "family-law",
     index: "03",
     title: "Family Law & Private Client",
-    tagline: "Discreet, compassionate and strategic - at home and across borders.",
+    tagline: "Discreet, compassionate and strategic, at home and across borders.",
     intro: [
       "Crownmarks is widely recognised as one of the top family law firms in Kenya, with a distinguished reputation for divorce, child custody, matrimonial property, surrogacy and cross-border family matters.",
-      "Our practice is led by highly experienced family lawyers, including Ilham Hisham (Islamic family law) and Ochiel Dudley, a sought-after Fellow of the International Academy of Family Lawyers (IAFL) - a mark of global excellence that lets us serve your family-law needs in Kenya and across the globe.",
-      "We provide discreet, compassionate and strategic support in high-stakes disputes: international divorce, child relocation and abduction, custody battles and complex asset division. Our clients - from high-net-worth individuals to expatriates and multinational families - trust our command of both Kenyan family law and international frameworks.",
+      "Our practice is led by highly experienced family lawyers, including Ilham Hisham (Islamic family law) and Ochiel Dudley, a sought-after Fellow of the International Academy of Family Lawyers (IAFL), a mark of global excellence that lets us serve your family-law needs in Kenya and across the globe.",
+      "We provide discreet, compassionate and strategic support in high-stakes disputes: international divorce, child relocation and abduction, custody battles and complex asset division. Our clients, from high-net-worth individuals to expatriates and multinational families, trust our command of both Kenyan family law and international frameworks.",
     ],
     servicesHeading: "Our family law services",
     services: [
       {
         items: [
-          "Divorce & separation - contested, uncontested, judicial separation, annulment",
-          "Child custody & access - parental responsibility, visitation, relocation disputes",
-          "Matrimonial property & financial settlements - asset division, spousal maintenance, business valuations",
-          "Child maintenance & support - enforcement and variation of orders",
-          "Prenuptial & postnuptial agreements - drafting and enforcement",
-          "Cross-border family law - international divorce, child abduction, Hague Convention matters",
-          "Adoption & guardianship - local and international adoption, guardianship applications",
+          "Divorce & separation: contested, uncontested, judicial separation, annulment",
+          "Child custody & access: parental responsibility, visitation, relocation disputes",
+          "Matrimonial property & financial settlements: asset division, spousal maintenance, business valuations",
+          "Child maintenance & support: enforcement and variation of orders",
+          "Prenuptial & postnuptial agreements: drafting and enforcement",
+          "Cross-border family law: international divorce, child abduction, Hague Convention matters",
+          "Adoption & guardianship: local and international adoption, guardianship applications",
         ],
       },
     ],
@@ -185,23 +185,23 @@ export const practices: Practice[] = [
     title: "Foreign Investment & Market Entry",
     tagline: "Empowering foreign investors entering the Kenyan market.",
     intro: [
-      "Kenya continues to attract foreign direct investment as a gateway to East and Central Africa. As a full-service Nairobi firm, we help international clients navigate the legal, regulatory and operational landscape with confidence - from company registration and investment licensing to cross-border transactions, joint ventures and ongoing compliance.",
-      "Our multidisciplinary team - lawyers, company secretaries, a chartered accountant, an actuary and MBA-qualified professionals - delivers commercially attuned solutions that align with both local regulation and international business standards.",
+      "Kenya continues to attract foreign direct investment as a gateway to East and Central Africa. As a full-service Nairobi firm, we help international clients navigate the legal, regulatory and operational landscape with confidence, from company registration and investment licensing to cross-border transactions, joint ventures and ongoing compliance.",
+      "Our multidisciplinary team, lawyers, company secretaries, a chartered accountant, an actuary and MBA-qualified professionals, delivers commercially attuned solutions that align with both local regulation and international business standards.",
     ],
     servicesHeading: "Legal services for foreign investors",
     services: [
       {
         items: [
-          "Business setup & incorporation - legal structures, shareholder agreements, KenInvest registration",
-          "Company formation & structuring - incorporation strategy, legal-entity advice",
-          "Corporate restructuring - reorganisation, insolvency advisory, exit strategies",
-          "Corporate governance & secretarial services - board advisory, statutory filings",
-          "Commercial agreements - drafting and negotiating high-value contracts and MOUs",
-          "Cross-border transactions - structuring international deals, joint ventures, capital inflows",
-          "Investment certificates & work permits - Investment Promotion Certificates and immigration approvals",
-          "Mergers & acquisitions - due diligence, structuring, competition compliance, integration",
-          "Regulatory advisory - sector-specific requirements across finance, telecoms, energy and trade",
-          "Private equity & venture capital - investment structuring, term sheets, capital raising",
+          "Business setup & incorporation: legal structures, shareholder agreements, KenInvest registration",
+          "Company formation & structuring: incorporation strategy, legal-entity advice",
+          "Corporate restructuring: reorganisation, insolvency advisory, exit strategies",
+          "Corporate governance & secretarial services: board advisory, statutory filings",
+          "Commercial agreements: drafting and negotiating high-value contracts and MOUs",
+          "Cross-border transactions: structuring international deals, joint ventures, capital inflows",
+          "Investment certificates & work permits: Investment Promotion Certificates and immigration approvals",
+          "Mergers & acquisitions: due diligence, structuring, competition compliance, integration",
+          "Regulatory advisory: sector-specific requirements across finance, telecoms, energy and trade",
+          "Private equity & venture capital: investment structuring, term sheets, capital raising",
         ],
       },
     ],
@@ -236,7 +236,7 @@ export const practices: Practice[] = [
     tagline: "Sharia-compliant counsel with a modern, professional approach.",
     intro: [
       "Crownmarks is a leading Kenyan firm for Sharia-compliant legal services, serving individuals, families and businesses who seek counsel rooted in Islamic principles, cultural sensitivity and unwavering integrity.",
-      "Our clients include Kenyan Muslim families navigating personal and financial matters, foreign nationals seeking Sharia-compliant representation in Kenya, Islamic institutions and charities, and non-Muslim clients seeking culturally informed support. Our team combines deep knowledge of Kenyan law and Islamic jurisprudence - guidance that is both legally sound and spiritually aligned.",
+      "Our clients include Kenyan Muslim families navigating personal and financial matters, foreign nationals seeking Sharia-compliant representation in Kenya, Islamic institutions and charities, and non-Muslim clients seeking culturally informed support. Our team combines deep knowledge of Kenyan law and Islamic jurisprudence, guidance that is both legally sound and spiritually aligned.",
     ],
     servicesHeading: "Practice areas",
     services: [
@@ -262,7 +262,7 @@ export const practices: Practice[] = [
     ],
     clientsHeading: "Cultural sensitivity",
     clients: [
-      "Multilingual support - Arabic, Urdu, Somali, Bengali",
+      "Multilingual support, Arabic, Urdu, Somali, Bengali",
       "Gender-sensitive representation options",
       "Community outreach & legal-education programmes",
     ],
@@ -287,7 +287,7 @@ export const practices: Practice[] = [
     slug: "energy-climate",
     index: "06",
     title: "Energy, Climate & Conservation",
-    tagline: "Powering Kenya's green transition - legally and sustainably.",
+    tagline: "Powering Kenya's green transition, legally and sustainably.",
     intro: [
       "We provide strategic counsel at the intersection of energy law, climate policy and environmental conservation. As Kenya accelerates its transition to clean energy and climate resilience, we advise clients on regulatory compliance, project development and environmental governance.",
       "Our team combines legal precision with multidisciplinary insight, supporting renewable-energy developers, carbon-market participants, conservation NGOs, government agencies and foreign investors navigating Kenya's evolving regulatory landscape.",
@@ -353,20 +353,20 @@ export const practices: Practice[] = [
     title: "Construction, Projects & Infrastructure",
     tagline: "End-to-end counsel across the full project lifecycle.",
     intro: [
-      "Our Construction, Projects & Infrastructure practice delivers end-to-end legal solutions across the full project lifecycle - from greenfield development to operational management and dispute resolution.",
-      "We don't just interpret contracts; our team uniquely combines qualified engineers with legal training, so we understand how projects are actually built. That dual expertise lets us strategise proactively, advise with technical precision and - when disputes arise - deliver decisive results in arbitration and court.",
+      "Our Construction, Projects & Infrastructure practice delivers end-to-end legal solutions across the full project lifecycle, from greenfield development to operational management and dispute resolution.",
+      "We don't just interpret contracts; our team uniquely combines qualified engineers with legal training, so we understand how projects are actually built. That dual expertise lets us strategise proactively, advise with technical precision and, when disputes arise, deliver decisive results in arbitration and court.",
     ],
     servicesHeading: "Core services",
     services: [
       {
         items: [
-          "Project structuring & procurement - EPC, EPCM, DBB, DBFO and PPP models",
-          "Contract drafting & negotiation - complex agreements, subcontracts and consortium arrangements",
-          "Regulatory & permitting - environmental approvals, planning, zoning and safety compliance",
-          "Risk management & insurance - surety bonds, performance guarantees, latent-defect cover",
-          "Construction finance & security - project financing, security packages, direct agreements",
-          "Dispute resolution & claims - adjudication, arbitration, delay and disruption claims",
-          "Sustainable & green construction - LEED, carbon-neutrality mandates, ESG-linked standards",
+          "Project structuring & procurement: EPC, EPCM, DBB, DBFO and PPP models",
+          "Contract drafting & negotiation: complex agreements, subcontracts and consortium arrangements",
+          "Regulatory & permitting: environmental approvals, planning, zoning and safety compliance",
+          "Risk management & insurance: surety bonds, performance guarantees, latent-defect cover",
+          "Construction finance & security: project financing, security packages, direct agreements",
+          "Dispute resolution & claims: adjudication, arbitration, delay and disruption claims",
+          "Sustainable & green construction: LEED, carbon-neutrality mandates, ESG-linked standards",
         ],
       },
       {
@@ -375,7 +375,7 @@ export const practices: Practice[] = [
           "Digital construction & BIM legal frameworks",
           "Modular & off-site construction",
           "Smart infrastructure & IoT integration",
-          "Energy-transition projects - hydrogen, carbon capture, grid-scale storage",
+          "Energy-transition projects: hydrogen, carbon capture, grid-scale storage",
           "Climate resilience & adaptation contracting",
         ],
       },
@@ -406,7 +406,7 @@ export const practices: Practice[] = [
     title: "Intellectual Property",
     tagline: "Protecting what drives your competitive advantage.",
     intro: [
-      "We protect the ideas, brands, technology and creative works that drive competitive advantage - across every jurisdiction and industry, from technology and life sciences to media, luxury, automotive and telecommunications.",
+      "We protect the ideas, brands, technology and creative works that drive competitive advantage, across every jurisdiction and industry, from technology and life sciences to media, luxury, automotive and telecommunications.",
       "Our prosecution teams are informed by litigation strategy from day one, with dual-qualified attorneys who hold advanced degrees in engineering, life sciences and computer science.",
     ],
     servicesHeading: "Core services",
@@ -470,7 +470,7 @@ export const practices: Practice[] = [
       },
       {
         title: "Commercial focus",
-        body: "IP advice aligned with business objectives - not just legal risk.",
+        body: "IP advice aligned with business objectives, not just legal risk.",
       },
     ],
     leadSlugs: ["judith-kamoing"],

@@ -31,7 +31,7 @@ export function PageHeader({
         cols={10}
         className="pointer-events-none absolute right-0 top-0 h-full w-[55%] opacity-50 [mask-image:linear-gradient(to_left,black,transparent)]"
       />
-      <Container className="relative pb-16 pt-36 sm:pt-40 lg:pb-20 lg:pt-44">
+      <Container className="relative pb-16 pt-16 sm:pt-20 lg:pb-20 lg:pt-24">
         {crumbs?.length ? (
           <Reveal>
             <nav className="mb-8 flex items-center gap-2 text-sm text-white/45">

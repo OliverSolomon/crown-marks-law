@@ -4,20 +4,29 @@ import { Container } from "@/components/Container";
 import { firm, nav } from "@/content/firm";
 import { practices } from "@/content/practices";
 
+const legalLinks = [
+  { label: "Sitemap", href: "/" },
+  { label: "Accessibility", href: "/contact" },
+  { label: "Privacy", href: "/contact" },
+  { label: "Legal statements", href: "/contact" },
+  { label: "Complaints", href: "/contact" },
+  { label: "Contact us", href: "/contact" },
+];
+
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="relative bg-navy-ink text-white/70">
       <Container className="py-20 lg:py-24">
-        <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
+        <div className="grid gap-14 lg:grid-cols-[1.5fr_1fr_1fr_1.15fr]">
           {/* Brand */}
           <div className="flex flex-col gap-6">
             <Logo tone="dark" className="w-[13rem]" />
             <p className="max-w-xs text-[0.95rem] leading-relaxed text-white/60">
               {firm.description}
             </p>
-            <p className="font-serif text-2xl text-gold-soft">{firm.tagline}</p>
+            <p className="text-2xl font-semibold text-gold-soft">{firm.tagline}</p>
           </div>
 
           {/* Practices */}
@@ -61,7 +70,16 @@ export function Footer() {
           </FooterCol>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-white/45 sm:flex-row sm:items-center sm:justify-between">
+        {/* Legal links row (CC-style) */}
+        <div className="mt-16 flex flex-wrap gap-x-7 gap-y-3 border-t border-white/10 pt-8 text-[0.8rem]">
+          {legalLinks.map((l) => (
+            <Link key={l.label} href={l.href} className="text-white/55 transition-colors hover:text-white">
+              {l.label}
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-8 flex flex-col gap-4 text-sm text-white/45 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {firm.name}. All rights reserved.
           </p>
@@ -71,7 +89,9 @@ export function Footer() {
                 {s.label}
               </a>
             ))}
-            <span className="hidden sm:inline">{firm.city}, {firm.country}</span>
+            <span className="hidden sm:inline">
+              {firm.city}, {firm.country}
+            </span>
           </div>
         </div>
       </Container>
@@ -82,7 +102,9 @@ export function Footer() {
 function FooterCol({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-4">
-      <h3 className="font-serif text-base text-gold-soft">{title}</h3>
+      <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-gold-soft">
+        {title}
+      </h3>
       <div className="flex flex-col gap-3 text-[0.95rem]">{children}</div>
     </div>
   );

@@ -2,28 +2,33 @@
 
 /*
   Crownmarks Law LLP — design system
-  Regal, legal, premium. Deep navy authority with a restrained gold accent.
+  Clean, corporate, editorial legal platform (Clifford Chance-style layout)
+  rendered in the firm's own brand colours: deep teal authority with a
+  restrained gold accent, taken from the Crownmarks wordmark.
 */
 
 @theme {
   /* ── Palette ───────────────────────────────────────────────── */
-  --color-canvas: #ffffff; /* crisp white */
-  --color-ivory: #f5f2ea; /* warm light section ground */
-  --color-ink: #0e1b30; /* deep-navy text on light */
-  --color-muted: #56617a; /* secondary text */
-  --color-faint: #8a93a6; /* tertiary / captions */
-  --color-line: #e5e2d8; /* hairline on light */
+  --color-canvas: #ffffff; /* crisp white — primary ground */
+  --color-ivory: #f2f6f5; /* cool light section ground */
+  --color-ink: #0b2b2a; /* deep teal-charcoal text on light */
+  --color-muted: #485957; /* secondary text */
+  --color-faint: #7b8b89; /* tertiary / captions */
+  --color-line: #e2e9e8; /* hairline on light */
 
-  --color-navy: #0b2240; /* brand navy */
-  --color-navy-deep: #081a33; /* darker sections */
-  --color-navy-ink: #050f20; /* darkest — hero/footer base */
+  /* Brand teal (from the wordmark). Variable names kept for continuity;
+     values are the Crownmarks teal, not navy. */
+  --color-navy: #0c6b68; /* brand teal */
+  --color-navy-deep: #094f4d; /* darker sections */
+  --color-navy-ink: #062f2e; /* darkest — hero/footer base */
 
-  --color-gold: #c8a24a; /* regal gold accent */
-  --color-gold-soft: #e2c97e; /* gold on dark grounds */
-  --color-gold-bright: #d4af37; /* metallic highlight */
+  --color-gold: #a67c1c; /* brand gold, tuned for legibility on white */
+  --color-gold-soft: #dcb862; /* gold on dark grounds */
+  --color-gold-bright: #cca336; /* metallic highlight (#CC9D33 family) */
 
   /* ── Type ──────────────────────────────────────────────────── */
-  --font-serif: var(--font-display), "Iowan Old Style", Georgia, serif;
+  /* Corporate grotesk display + clean body sans, matching the CC feel. */
+  --font-serif: var(--font-display), "Libre Franklin", ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
 
   /* ── Motion (Emil Kowalski curves) ─────────────────────────── */
@@ -45,10 +50,10 @@ html {
 }
 
 body {
-  background-color: var(--color-ivory);
+  background-color: var(--color-canvas);
   color: var(--color-ink);
   font-family: var(--font-sans);
-  letter-spacing: -0.006em;
+  letter-spacing: -0.004em;
 }
 
 ::selection {
@@ -56,19 +61,19 @@ body {
   color: #fff;
 }
 
-/* Display serif (Playfair) reads best tight and short-leading at size */
+/* Display headings: corporate sans, medium weight, tight — CC register. */
 h1,
 h2,
 h3 {
   font-family: var(--font-serif);
-  font-weight: 500;
-  letter-spacing: -0.015em;
-  line-height: 1.06;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
 }
 
 /* ── Focus visibility ────────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid var(--color-gold);
+  outline: 2px solid var(--color-navy);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -105,5 +110,78 @@ h3 {
 @media (hover: hover) and (pointer: fine) {
   .link-underline:hover {
     background-size: 100% 1px;
+  }
+}
+
+/* ── Editorial accordion (native <details>, CC "legal DNA" list) ── */
+.cc-acc {
+  border-top: 1px solid var(--color-line);
+}
+.cc-acc > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+}
+.cc-acc > summary::-webkit-details-marker {
+  display: none;
+}
+.cc-acc .cc-acc-sign {
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  transition: transform 0.4s var(--ease-out);
+}
+.cc-acc .cc-acc-sign::before,
+.cc-acc .cc-acc-sign::after {
+  content: "";
+  position: absolute;
+  background-color: var(--color-navy);
+}
+.cc-acc .cc-acc-sign::before {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  transform: translateY(-50%);
+}
+.cc-acc .cc-acc-sign::after {
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 1.5px;
+  transform: translateX(-50%);
+  transition: opacity 0.3s var(--ease-out);
+}
+.cc-acc[open] .cc-acc-sign {
+  transform: rotate(90deg);
+}
+.cc-acc[open] .cc-acc-sign::after {
+  opacity: 0;
+}
+.cc-acc-body {
+  overflow: hidden;
+  padding-bottom: 1.75rem;
+}
+.cc-acc[open] .cc-acc-body {
+  animation: cc-acc-open 0.45s var(--ease-out);
+}
+@keyframes cc-acc-open {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cc-acc[open] .cc-acc-body {
+    animation: none;
   }
 }

@@ -26,7 +26,7 @@ export function CTASection({
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(120deg, var(--color-navy-ink) 22%, rgba(8,26,51,0.82) 60%, rgba(5,15,32,0.55) 100%)",
+            "linear-gradient(120deg, var(--color-navy-ink) 22%, rgba(9,79,77,0.85) 60%, rgba(12,107,104,0.55) 100%)",
         }}
       />
       <Container className="relative py-24 lg:py-32">

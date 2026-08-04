@@ -77,7 +77,7 @@ export default function AboutPage() {
           <Reveal>
             <SectionHeading eyebrow="What guides us" title="Principles we hold to." className="mb-14" />
           </Reveal>
-          <div className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2">
+          <div className="grid gap-px overflow-hidden rounded-sm border border-line bg-line sm:grid-cols-2">
             {values.map((v, i) => (
               <Reveal
                 key={v.title}

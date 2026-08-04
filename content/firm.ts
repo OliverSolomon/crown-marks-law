@@ -18,7 +18,7 @@ export const firm = {
     phone: "+254 20 765 4300",
     phoneHref: "tel:+254207654300",
     address: ["Riverside Square, Riverside Drive", "Westlands, Nairobi", "Kenya"],
-    hours: "Monday - Friday, 8:30 - 18:00 EAT",
+    hours: "Monday to Friday, 8:30 to 18:00 EAT",
   },
   social: [
     { label: "LinkedIn", href: "#" },
@@ -66,11 +66,11 @@ export type Value = { title: string; body: string };
 export const values: Value[] = [
   {
     title: "Integrity first",
-    body: "Resolute advocacy in the courtroom and candid, pragmatic advice in the boardroom - grounded in the same standard of integrity.",
+    body: "Resolute advocacy in the courtroom and candid, pragmatic advice in the boardroom, grounded in the same standard of integrity.",
   },
   {
     title: "Multidisciplinary depth",
-    body: "Advocates who are also Company Secretaries, Chartered Accountants, Actuaries, engineers and MBAs - one team, a 360° view of every matter.",
+    body: "Advocates who are also Company Secretaries, Chartered Accountants, Actuaries, engineers and MBAs. One team, a 360° view of every matter.",
   },
   {
     title: "Local roots, global reach",

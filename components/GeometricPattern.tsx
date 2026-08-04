@@ -35,9 +35,9 @@ export function GeometricPattern({
     >
       <defs>
         <linearGradient id="cm-lattice" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#1d365c" />
-          <stop offset="50%" stopColor="#33507a" />
-          <stop offset="100%" stopColor="#e2c97e" />
+          <stop offset="0%" stopColor="#0c6b68" />
+          <stop offset="50%" stopColor="#1b8783" />
+          <stop offset="100%" stopColor="#dcb862" />
         </linearGradient>
       </defs>
       <path

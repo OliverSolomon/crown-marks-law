@@ -22,7 +22,7 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="flex flex-col items-start gap-4 rounded-2xl border border-line bg-canvas p-10">
+      <div className="flex flex-col items-start gap-4 rounded-sm border border-line bg-canvas p-10">
         <span className="flex h-12 w-12 items-center justify-center rounded-full bg-navy/10 text-navy">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
             <path
@@ -46,7 +46,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-5 rounded-2xl border border-line bg-canvas p-6 sm:p-8"
+      className="flex flex-col gap-5 rounded-sm border border-line bg-canvas p-6 sm:p-8"
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
